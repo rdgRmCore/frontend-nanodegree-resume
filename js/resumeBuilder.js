@@ -1,0 +1,95 @@
+
+/* JSON */
+
+/* BIO */
+{ "bio" :{
+    "name" : "Rand Graham",
+    "role" : "Software Developer",
+    "contacts" : {
+          "mobile": "815-555-1234",
+          "email": "rdg@rmcore.com" ,
+          "github": "rdgRmCore",
+          "twitter": "@rdg_rmcore" ,
+          "location": "Crystal Lake"
+    },
+    "welcomeMessage": "I make a living making software." ,
+    "skills": ["Embedded Systems", "Real Time Systems", "Image Processing", "Android" ],
+    "biopic": "http://rmcore.com/about/",
+    "display": "function"
+    }
+}
+
+{ "education" :{
+    "schools": [
+         {"name": "University of Illinois",
+         "location": "Urbana Champaign",
+         "degree": "Bachelor's of Science",
+         "majors": "Computer Science" ,
+         "dates": "May 1999",
+         "url": "http://illinois.edu/"},
+         {"name": "Hinsdale South",
+         "location": "Darien, IL",
+         "degree": "High School Diploma",
+         "majors": "General",
+         "dates": "June 1995",
+         "url": "http://south.hinsdale86.org/pages/default.aspx"}
+         ],
+    "onlineCourses": [
+         {"title": "Intro to HTML and CSS",
+         "school": "Udacity",
+         "date": 2014,
+         "url": "ihttps://www.udacity.com/"},
+         {"title": "JavaScript Basics",
+         "school": "Udacity",
+         "date": 2015,
+         "url": "ihttps://www.udacity.com/"},
+         {"title": "Intro to jQuery",
+         "school": "Udacity",
+         "date": 2015,
+         "url": "ihttps://www.udacity.com/"}
+         ],
+    "display": "function"
+    }
+}
+
+{ "work" : {
+    "jobs": [
+         {"employer": "Zenith" ,
+         "title": "Senior Software Engineer" ,
+         "location": "Lincolnshire" ,
+         "dates": "2013-Present" ,
+         "description": "I work on video encryption technology." },
+         {"employer": "Toshiba Medical Research Institute US" ,
+         "title": "Senior Software Engineer" ,
+         "location": "Vernon Hills" ,
+         "dates": "2007-2013" ,
+         "description": "I worked on embedded C++ for medical imaging devices." },
+         {"employer": "Cummins Allison" ,
+         "title": "Embedded Software Engineer" ,
+         "location": "Mt Prospect" ,
+         "dates": "2005-2007" ,
+         "description": "I worked on embedded C++ for banking automation machines." }
+         ],
+    "display": "function"
+    }
+}
+
+{"projects" : {
+    "projects":[
+          {"title": "Email Sign Up" ,
+          "dates": "2012-Present",
+          "description": "An Android App",
+          "images": "array strng urls"},
+          {"title": "Eggspense" ,
+          "dates": "2013",
+          "description": "An Android App",
+          "images": "array with string urls"},
+          {"title": "Eco Trip" ,
+          "dates": "2012",
+          "description": "An Android App",
+          "images": "array with string urls"}
+          ],
+    "display": "function taking no parameters"
+
+    }
+}
