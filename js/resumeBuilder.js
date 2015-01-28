@@ -2,7 +2,7 @@
 /* JSON */
 
 /* BIO */
-{ "bio" :{
+var bio = {
     "name" : "Rand Graham",
     "role" : "Software Developer",
     "contacts" : {
@@ -17,22 +17,16 @@
     "biopic": "http://rmcore.com/about/",
     "display": "function"
     }
-}
 
-{ "education" :{
+
+var education ={
     "schools": [
          {"name": "University of Illinois",
          "location": "Urbana Champaign",
-         "degree": "Bachelor's of Science",
-         "majors": "Computer Science" ,
-         "dates": "May 1999",
-         "url": "http://illinois.edu/"},
-         {"name": "Hinsdale South",
-         "location": "Darien, IL",
-         "degree": "High School Diploma",
-         "majors": "General",
-         "dates": "June 1995",
-         "url": "http://south.hinsdale86.org/pages/default.aspx"}
+         "degree": "BS",
+         "majors": ["Computer Science"],
+         "dates": "1999",
+         "url": "http://illinois.edu/"}
          ],
     "onlineCourses": [
          {"title": "Intro to HTML and CSS",
@@ -50,9 +44,9 @@
          ],
     "display": "function"
     }
-}
 
-{ "work" : {
+
+var work = {
     "jobs": [
          {"employer": "Zenith" ,
          "title": "Senior Software Engineer" ,
@@ -72,9 +66,9 @@
          ],
     "display": "function"
     }
-}
 
-{"projects" : {
+
+var projects = {
     "projects":[
           {"title": "Email Sign Up" ,
           "dates": "2012-Present",
@@ -92,4 +86,11 @@
     "display": "function taking no parameters"
 
     }
-}
+
+
+var formattedName = HTMLheaderName.replace("%data%", bio.name);
+
+var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+
+$("#header").prepend(formattedRole);
+$("#header").prepend(formattedName);
