@@ -88,9 +88,27 @@ var projects = {
     }
 
 
-var formattedName = HTMLheaderName.replace("%data%", bio.name);
+/*
+ *  Update an html string with the value of data
+ */
+function updateHTML(string, data){
+  update = string.replace("%data%", data);
+  $("#header").prepend(update);
+}
 
-var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
+function updateContact(string, contact, data){
+  update = string.replace("%contact%", contact);
+  updateHTML(update, data);
+}
+function updateContacts(contacts){
+  for(contact in contacts){
+    updateContact(HTMLcontactGeneric, contact, contacts[contact]);
+    console.log(contact, contacts[contact]);
+  }
+  
+}
+//updateHTML(HTMLmobile, bio.contacts["mobile"]);
+updateContacts(bio.contacts);
+updateHTML(HTMLheaderName, bio.name);
+updateHTML(HTMLheaderRole, bio.role);
 
-$("#header").prepend(formattedRole);
-$("#header").prepend(formattedName);
