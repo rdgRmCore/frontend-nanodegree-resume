@@ -14,7 +14,7 @@ var bio = {
     },
     "welcomeMessage": "I make a living making software." ,
     "skills": ["Embedded Systems", "Real Time Systems", "Image Processing", "Android" ],
-    "biopic": "http://rmcore.com/about/",
+    "biopic": "images/rdg.jpg",
     "display": "function"
     }
 
@@ -103,12 +103,11 @@ function updateContact(string, contact, data){
 function updateContacts(contacts){
   for(contact in contacts){
     updateContact(HTMLcontactGeneric, contact, contacts[contact]);
-    console.log(contact, contacts[contact]);
   }
   
 }
-//updateHTML(HTMLmobile, bio.contacts["mobile"]);
 updateContacts(bio.contacts);
-updateHTML(HTMLheaderName, bio.name);
+updateHTML(HTMLbioPic, bio.biopic);
 updateHTML(HTMLheaderRole, bio.role);
+updateHTML(HTMLheaderName, bio.name);
 
