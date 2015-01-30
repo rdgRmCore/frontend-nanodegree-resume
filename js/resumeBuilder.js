@@ -50,17 +50,17 @@ var work = {
     "jobs": [
          {"employer": "Zenith" ,
          "title": "Senior Software Engineer" ,
-         "location": "Lincolnshire" ,
+         "location": "Lincolnshire, IL" ,
          "dates": "2013-Present" ,
          "description": "I work on video encryption technology." },
          {"employer": "Toshiba Medical Research Institute US" ,
          "title": "Senior Software Engineer" ,
-         "location": "Vernon Hills" ,
+         "location": "Vernon Hills, IL" ,
          "dates": "2007-2013" ,
          "description": "I worked on embedded C++ for medical imaging devices." },
          {"employer": "Cummins Allison" ,
          "title": "Embedded Software Engineer" ,
-         "location": "Mt Prospect" ,
+         "location": "Mt Prospect, IL" ,
          "dates": "2005-2007" ,
          "description": "I worked on embedded C++ for banking automation machines." }
          ],
@@ -125,6 +125,7 @@ function displayWork () {
     var formattedTitle =  HTMLworkTitle.replace("%data%",work.jobs[job].title);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
     $(".work-entry:last").append(formattedEmployerTitle);
+    appendHTML(".work-entry:last", HTMLworkLocation, work.jobs[job].location);
     
     appendHTML(".work-entry:last", HTMLworkDates, work.jobs[job].dates);
     appendHTML(".work-entry:last", HTMLworkDescription, work.jobs[job].description);
@@ -145,10 +146,3 @@ appendHtmlArray("#skills",HTMLskills, bio.skills);
 displayWork();
 
 
-//Log clicks on the page
-$(document).click(function(loc){
-  var x = loc.pageX;
-  var y = loc.pageY;
-
-  logClicks(x,y);
-});
