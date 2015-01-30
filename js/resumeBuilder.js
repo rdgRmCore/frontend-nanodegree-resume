@@ -143,3 +143,12 @@ $("#header").append(HTMLskillsStart);
 appendHtmlArray("#skills",HTMLskills, bio.skills);
 
 displayWork();
+
+
+//Log clicks on the page
+$(document).click(function(loc){
+  var x = loc.pageX;
+  var y = loc.pageY;
+
+  logClicks(x,y);
+});
