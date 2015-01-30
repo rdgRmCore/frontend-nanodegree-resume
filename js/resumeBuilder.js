@@ -125,6 +125,9 @@ function displayWork () {
     var formattedTitle =  HTMLworkTitle.replace("%data%",work.jobs[job].title);
     var formattedEmployerTitle = formattedEmployer + formattedTitle;
     $(".work-entry:last").append(formattedEmployerTitle);
+    
+    appendHTML(".work-entry:last", HTMLworkDates, work.jobs[job].dates);
+    appendHTML(".work-entry:last", HTMLworkDescription, work.jobs[job].description);
 
   }
 }
