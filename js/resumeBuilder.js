@@ -73,15 +73,18 @@ var projects = {
           {"title": "Email Sign Up" ,
           "dates": "2012-Present",
           "description": "An Android App",
-          "images": "array strng urls"},
+          "images": ["images/email-sign-up.png","images/email-sign-up-collection.png",
+                     "images/email-sign-up-winner.png"]},
           {"title": "Eggspense" ,
           "dates": "2013",
           "description": "An Android App",
-          "images": "array with string urls"},
+          "images": ["images/eggspense.png","images/eggspense-share.png",
+                     "images/eggspense-stats.png"]},
           {"title": "Eco Trip" ,
           "dates": "2012",
           "description": "An Android App",
-          "images": "array with string urls"}
+          "images": ["images/eco-trip.png","images/eco-trip-graph.jpg",
+                     "images/eco-trip-history.jpg"]}
           ],
     "display": "function taking no parameters"
 
@@ -110,7 +113,7 @@ function updateContacts(contacts){
   }
   
 }
-function appendHtmlArray(id,html, array){
+function appendHTMLArray(id,html, array){
   for(item in array){
     appendHTML(id, html, array[item]);
   }
@@ -140,7 +143,8 @@ function displayProjects(){
     appendHTML(".project-entry:last", HTMLprojectTitle, projects.projects[project].title);
     appendHTML(".project-entry:last", HTMLprojectDates, projects.projects[project].dates);
     appendHTML(".project-entry:last", HTMLprojectDescription, projects.projects[project].description);
-    //appendhtml(".project-entry:last", HTMLprojectImage, projects.projects[project].image);
+    //appendHTML(".project-entry:last", HTMLprojectImage, projects.projects[project].images);
+    appendHTMLArray(".project-entry:last", HTMLprojectImage,projects.projects[project].images); 
   }
   
 }
@@ -153,7 +157,7 @@ prependHTML("#header",HTMLheaderName, bio.name);
 appendHTML("#header",HTMLWelcomeMsg, bio.welcomeMessage);
 appendHTML("#header",HTMLbioPic, bio.biopic);
 $("#header").append(HTMLskillsStart);
-appendHtmlArray("#skills",HTMLskills, bio.skills);
+appendHTMLArray("#skills",HTMLskills, bio.skills);
 
 displayWork();
 displayProjects();
