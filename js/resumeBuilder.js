@@ -143,7 +143,6 @@ function displayProjects(){
     appendHTML(".project-entry:last", HTMLprojectTitle, projects.projects[project].title);
     appendHTML(".project-entry:last", HTMLprojectDates, projects.projects[project].dates);
     appendHTML(".project-entry:last", HTMLprojectDescription, projects.projects[project].description);
-    //appendHTML(".project-entry:last", HTMLprojectImage, projects.projects[project].images);
     appendHTMLArray(".project-entry:last", HTMLprojectImage,projects.projects[project].images); 
   }
   
