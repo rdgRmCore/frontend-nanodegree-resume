@@ -91,14 +91,18 @@ var projects = {
 /*
  *  Update an html string with the value of data
  */
-function updateHTML(string, data){
+function prependHTML(id, string, data){
   update = string.replace("%data%", data);
-  $("#header").prepend(update);
+  $(id).prepend(update);
+}
+function appendHTML(id, string, data){
+  update = string.replace("%data%", data);
+  $(id).append(update);
 }
 
 function updateContact(string, contact, data){
   update = string.replace("%contact%", contact);
-  updateHTML(update, data);
+  appendHTML("#topContacts",update, data);
 }
 function updateContacts(contacts){
   for(contact in contacts){
@@ -106,8 +110,18 @@ function updateContacts(contacts){
   }
   
 }
-updateContacts(bio.contacts);
-updateHTML(HTMLbioPic, bio.biopic);
-updateHTML(HTMLheaderRole, bio.role);
-updateHTML(HTMLheaderName, bio.name);
+function appendHtmlArray(id,html, array){
+  for(item in array){
+    appendHTML(id, html, array[item]);
+  }
+}
 
+
+updateContacts(bio.contacts);
+prependHTML("#header",HTMLheaderRole, bio.role);
+prependHTML("#header",HTMLheaderName, bio.name);
+
+appendHTML("#header",HTMLWelcomeMsg, bio.welcomeMessage);
+appendHTML("#header",HTMLbioPic, bio.biopic);
+$("#header").append(HTMLskillsStart);
+appendHtmlArray("#skills",HTMLskills, bio.skills);
