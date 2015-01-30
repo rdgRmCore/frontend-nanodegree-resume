@@ -148,6 +148,23 @@ function displayProjects(){
   
 }
 
+//var HTMLonlineClasses = '<h3>Online Classes</h3>';
+//var HTMLonlineTitle = '<a href="#">%data%';
+//var HTMLonlineSchool = ' - %data%</a>';
+//var HTMLonlineDates = '<div class="date-text">%data%</div>';
+//var HTMLonlineURL = '<br><a href="#">%data%</a>';
+function displayEducation(){
+  //create new div for projects
+  $("#education").append(HTMLschoolStart);
+  for(school in education.schools){
+    appendHTML(".education-entry:last", HTMLschoolName, education.schools[school].name);
+    appendHTML(".education-entry:last", HTMLschoolDegree, education.schools[school].degree);
+    appendHTML(".date-text:last", HTMLschoolDates, education.schools[school].dates);
+    appendHTML(".location-text:last", HTMLschoolLocation, education.schools[school].location);
+    //appendHTML(".education-entry:last", HTMLschoolMajor, education.schools[school].majors);
+  }
+}
+
 
 updateContacts(bio.contacts);
 prependHTML("#header",HTMLheaderRole, bio.role);
@@ -160,5 +177,5 @@ appendHTMLArray("#skills",HTMLskills, bio.skills);
 
 displayWork();
 displayProjects();
-
+displayEducation();
 
