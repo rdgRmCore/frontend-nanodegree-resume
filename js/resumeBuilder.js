@@ -133,6 +133,18 @@ function displayWork () {
   }
 }
 
+function displayProjects(){
+  //create new div for projects
+  $("#projects").append(HTMLprojectStart);
+  for (project in projects.projects){
+    appendHTML(".project-entry:last", HTMLprojectTitle, projects.projects[project].title);
+    appendHTML(".project-entry:last", HTMLprojectDates, projects.projects[project].dates);
+    appendHTML(".project-entry:last", HTMLprojectDescription, projects.projects[project].description);
+    //appendhtml(".project-entry:last", HTMLprojectImage, projects.projects[project].image);
+  }
+  
+}
+
 
 updateContacts(bio.contacts);
 prependHTML("#header",HTMLheaderRole, bio.role);
@@ -144,5 +156,6 @@ $("#header").append(HTMLskillsStart);
 appendHtmlArray("#skills",HTMLskills, bio.skills);
 
 displayWork();
+displayProjects();
 
 
