@@ -92,16 +92,16 @@ var projects = {
  *  Update an html string with the value of data
  */
 function prependHTML(id, string, data){
-  update = string.replace("%data%", data);
+  var update = string.replace("%data%", data);
   $(id).prepend(update);
 }
 function appendHTML(id, string, data){
-  update = string.replace("%data%", data);
+  var update = string.replace("%data%", data);
   $(id).append(update);
 }
 
 function updateContact(string, contact, data){
-  update = string.replace("%contact%", contact);
+  var update = string.replace("%contact%", contact);
   appendHTML("#topContacts",update, data);
 }
 function updateContacts(contacts){
@@ -120,8 +120,11 @@ function displayWork () {
   for (job in work.jobs){
     //create new div for work experience
     $("#workExperience").append(HTMLworkStart);
-    appendHTML(".work-entry:last", HTMLworkEmployer, work.jobs[job].employer);
-    appendHTML(".work-entry:last", HTMLworkTitle, work.jobs[job].title);
+    //concat employer and title
+    var formattedEmployer =  HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
+    var formattedTitle =  HTMLworkTitle.replace("%data%",work.jobs[job].title);
+    var formattedEmployerTitle = formattedEmployer + formattedTitle;
+    $(".work-entry:last").append(formattedEmployerTitle);
 
   }
 }
