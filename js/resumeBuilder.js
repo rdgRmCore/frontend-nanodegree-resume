@@ -116,6 +116,16 @@ function appendHtmlArray(id,html, array){
   }
 }
 
+function displayWork () {
+  for (job in work.jobs){
+    //create new div for work experience
+    $("#workExperience").append(HTMLworkStart);
+    appendHTML(".work-entry:last", HTMLworkEmployer, work.jobs[job].employer);
+    appendHTML(".work-entry:last", HTMLworkTitle, work.jobs[job].title);
+
+  }
+}
+
 
 updateContacts(bio.contacts);
 prependHTML("#header",HTMLheaderRole, bio.role);
@@ -125,3 +135,5 @@ appendHTML("#header",HTMLWelcomeMsg, bio.welcomeMessage);
 appendHTML("#header",HTMLbioPic, bio.biopic);
 $("#header").append(HTMLskillsStart);
 appendHtmlArray("#skills",HTMLskills, bio.skills);
+
+displayWork();
