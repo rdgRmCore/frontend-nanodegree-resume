@@ -14,8 +14,7 @@ var bio = {
     },
     "welcomeMessage": "I make a living making software." ,
     "skills": ["Embedded Systems", "Real Time Systems", "Image Processing", "Android" ],
-    "biopic": "images/rdg.jpg",
-    "display": "function"
+    "biopic": "images/rdg.jpg"
     }
 
 
@@ -41,8 +40,7 @@ var education ={
          "school": "Udacity",
          "date": 2015,
          "url": "https://www.udacity.com/"}
-         ],
-    "display": "function"
+         ]
     }
 
 
@@ -63,8 +61,7 @@ var work = {
          "location": "Mt Prospect, IL" ,
          "dates": "2005-2007" ,
          "description": "I worked on embedded C++ for banking automation machines." }
-         ],
-    "display": "function"
+         ]
     }
 
 
@@ -85,41 +82,50 @@ var projects = {
           "description": "An Android App",
           "images": ["images/eco-trip.png","images/eco-trip-graph.jpg",
                      "images/eco-trip-history.jpg"]}
-          ],
-    "display": "function taking no parameters"
-
+          ]
     }
 
 
-/*
- *  Update an html string with the value of data
- */
+
+//  Update by prepending an html string with the value of data
 function prependHTML(id, string, data){
   var update = string.replace("%data%", data);
   $(id).prepend(update);
 }
+
+//Update an HTML string by appending
 function appendHTML(id, string, data){
   var update = string.replace("%data%", data);
   $(id).append(update);
 }
 
+//Function to update a Contact
 function updateContact(string, contact, data){
   var update = string.replace("%contact%", contact);
   appendHTML("#topContacts",update, data);
 }
+
+//Function to update contacts
+//@contacts an array of strings representing contact information
 function updateContacts(contacts){
   for(contact in contacts){
     updateContact(HTMLcontactGeneric, contact, contacts[contact]);
   }
   
 }
+
+//Append an array of strings to an jquery selector id by replacing place holder text in a string.
+//@id - jquery selector id
+//@html - a string that has place holder text
+//@array - an array of strings
 function appendHTMLArray(id,html, array){
   for(item in array){
     appendHTML(id, html, array[item]);
   }
 }
 
-function displayWork () {
+//Display work history. Fill in resume from JSON.
+work.display = function () {
   for (job in work.jobs){
     //create new div for work experience
     $("#workExperience").append(HTMLworkStart);
@@ -136,7 +142,8 @@ function displayWork () {
   }
 }
 
-function displayProjects(){
+//Display projects. Fill in data from JSON.
+projects.display = function (){
   //create new div for projects
   $("#projects").append(HTMLprojectStart);
   for (project in projects.projects){
@@ -148,7 +155,8 @@ function displayProjects(){
   
 }
 
-function displayEducation(){
+//Display education. Fill in data from JSON.
+education.display = function (){
   //create new div for education
   $("#education").append(HTMLschoolStart);
   for(school in education.schools){
@@ -159,9 +167,7 @@ function displayEducation(){
     appendHTML(".education-entry", HTMLschoolLocation, education.schools[school].location);
     appendHTML(".education-entry", HTMLschoolMajor, education.schools[school].majors);
   }
-}
 
-function displayOnlineClasses(){
   //add online classes to education section
   $(".education-entry").append(HTMLonlineClasses);
   for(course in education.onlineCourses){
@@ -173,17 +179,21 @@ function displayOnlineClasses(){
 }
 
 
-updateContacts(bio.contacts);
-prependHTML("#header",HTMLheaderRole, bio.role);
-prependHTML("#header",HTMLheaderName, bio.name);
+//Display the bio JSON
+bio.display = function(){
+  updateContacts(bio.contacts);
+  prependHTML("#header",HTMLheaderRole, bio.role);
+  prependHTML("#header",HTMLheaderName, bio.name);
 
-appendHTML("#header",HTMLWelcomeMsg, bio.welcomeMessage);
-appendHTML("#header",HTMLbioPic, bio.biopic);
-$("#header").append(HTMLskillsStart);
-appendHTMLArray("#skills",HTMLskills, bio.skills);
+  appendHTML("#header",HTMLWelcomeMsg, bio.welcomeMessage);
+  appendHTML("#header",HTMLbioPic, bio.biopic);
+  $("#header").append(HTMLskillsStart);
+  appendHTMLArray("#skills",HTMLskills, bio.skills);
+}
 
-displayWork();
-displayProjects();
-displayEducation();
-displayOnlineClasses();
+//Call the functions to display the resume
+bio.display();
+work.display();
+projects.display();
+education.display();
 
