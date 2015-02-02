@@ -197,3 +197,6 @@ work.display();
 projects.display();
 education.display();
 
+//add the map
+$("#mapDiv").append(googleMap);
+
