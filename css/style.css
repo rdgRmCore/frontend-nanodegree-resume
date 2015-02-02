@@ -15,7 +15,7 @@
 
 h1 {
   font-size: 40px;
-  color: #F5A623;
+  color: #6CA741;
   line-height: 48px;
   display: inline;
 }
@@ -87,7 +87,7 @@ a {
 }
 
 #skillsH3 {
-  color: #F5AE23;
+  color: #6CA741;
   display: none;
 }
 
@@ -97,6 +97,14 @@ a {
 
 .orange-text {
   color: #F5AE23;
+}
+
+.green {
+  background-color: #6CA741;
+}
+
+.green-text {
+  color: #6CA741;
 }
 
 .white-text {
@@ -166,8 +174,9 @@ span {
   padding: 5px;
 }
 
-#letsConnect {
+#letsConnect h2 {
   text-align: center;
+  color: #333333;
 }
 
 @media only screen and (max-width: 1024px) {
