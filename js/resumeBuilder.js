@@ -103,6 +103,7 @@ function appendHTML(id, string, data){
 function updateContact(string, contact, data){
   var update = string.replace("%contact%", contact);
   appendHTML("#topContacts",update, data);
+  appendHTML("#footerContacts",update, data);
 }
 
 //Function to update contacts
