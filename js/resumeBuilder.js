@@ -69,17 +69,17 @@ var projects = {
     "projects":[
           {"title": "Email Sign Up" ,
           "dates": "2012-Present",
-          "description": "An Android App",
+          "description": "An Android App to collect names and email addresses from an Android device.",
           "images": ["images/email-sign-up.png","images/email-sign-up-collection.png",
                      "images/email-sign-up-winner.png"]},
           {"title": "Eggspense" ,
           "dates": "2013",
-          "description": "An Android App",
+          "description": "An Android App to keep track of chicken expenses.",
           "images": ["images/eggspense.png","images/eggspense-share.png",
                      "images/eggspense-stats.png"]},
           {"title": "Eco Trip" ,
           "dates": "2012",
-          "description": "An Android App",
+          "description": "An Android App to calculate gas mileage.",
           "images": ["images/eco-trip.png","images/eco-trip-graph.jpg",
                      "images/eco-trip-history.jpg"]}
           ]
@@ -145,12 +145,12 @@ work.display = function () {
 //Display projects. Fill in data from JSON.
 projects.display = function (){
   //create new div for projects
-  $("#projects").append(HTMLprojectStart);
   for (project in projects.projects){
-    appendHTML(".project-entry", HTMLprojectTitle, projects.projects[project].title);
-    appendHTML(".project-entry", HTMLprojectDates, projects.projects[project].dates);
-    appendHTML(".project-entry", HTMLprojectDescription, projects.projects[project].description);
-    appendHTMLArray(".project-entry", HTMLprojectImage,projects.projects[project].images); 
+    $("#projects").append(HTMLprojectStart);
+    appendHTML(".project-entry:last", HTMLprojectTitle, projects.projects[project].title);
+    appendHTML(".project-entry:last", HTMLprojectDates, projects.projects[project].dates);
+    appendHTML(".project-entry:last", HTMLprojectDescription, projects.projects[project].description);
+    appendHTMLArray(".project-entry:last", HTMLprojectImage,projects.projects[project].images); 
   }
   
 }
