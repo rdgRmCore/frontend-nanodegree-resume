@@ -32,15 +32,15 @@ var education ={
          {"title": "Intro to HTML and CSS",
          "school": "Udacity",
          "date": 2014,
-         "url": "ihttps://www.udacity.com/"},
+         "url": "https://www.udacity.com/"},
          {"title": "JavaScript Basics",
          "school": "Udacity",
          "date": 2015,
-         "url": "ihttps://www.udacity.com/"},
+         "url": "https://www.udacity.com/"},
          {"title": "Intro to jQuery",
          "school": "Udacity",
          "date": 2015,
-         "url": "ihttps://www.udacity.com/"}
+         "url": "https://www.udacity.com/"}
          ],
     "display": "function"
     }
@@ -140,29 +140,39 @@ function displayProjects(){
   //create new div for projects
   $("#projects").append(HTMLprojectStart);
   for (project in projects.projects){
-    appendHTML(".project-entry:last", HTMLprojectTitle, projects.projects[project].title);
-    appendHTML(".project-entry:last", HTMLprojectDates, projects.projects[project].dates);
-    appendHTML(".project-entry:last", HTMLprojectDescription, projects.projects[project].description);
-    appendHTMLArray(".project-entry:last", HTMLprojectImage,projects.projects[project].images); 
+    appendHTML(".project-entry", HTMLprojectTitle, projects.projects[project].title);
+    appendHTML(".project-entry", HTMLprojectDates, projects.projects[project].dates);
+    appendHTML(".project-entry", HTMLprojectDescription, projects.projects[project].description);
+    appendHTMLArray(".project-entry", HTMLprojectImage,projects.projects[project].images); 
   }
   
 }
 
-//var HTMLonlineClasses = '<h3>Online Classes</h3>';
-//var HTMLonlineTitle = '<a href="#">%data%';
-//var HTMLonlineSchool = ' - %data%</a>';
-//var HTMLonlineDates = '<div class="date-text">%data%</div>';
-//var HTMLonlineURL = '<br><a href="#">%data%</a>';
 function displayEducation(){
   //create new div for education
   $("#education").append(HTMLschoolStart);
   for(school in education.schools){
     var update = HTMLschoolName.replace("#", education.schools[school].url);
-    appendHTML(".education-entry:last", update, education.schools[school].name);
-    appendHTML(".education-entry:last", HTMLschoolDegree, education.schools[school].degree);
-    appendHTML(".education-entry:last", HTMLschoolDates, education.schools[school].dates);
-    appendHTML(".education-entry:last", HTMLschoolLocation, education.schools[school].location);
-    appendHTML(".education-entry:last", HTMLschoolMajor, education.schools[school].majors);
+    appendHTML(".education-entry", update, education.schools[school].name);
+    appendHTML(".education-entry", HTMLschoolDegree, education.schools[school].degree);
+    appendHTML(".education-entry", HTMLschoolDates, education.schools[school].dates);
+    appendHTML(".education-entry", HTMLschoolLocation, education.schools[school].location);
+    appendHTML(".education-entry", HTMLschoolMajor, education.schools[school].majors);
+  }
+}
+
+//var HTMLonlineTitle = '<a href="#">%data%';
+//var HTMLonlineSchool = ' - %data%</a>';
+//var HTMLonlineDates = '<div class="date-text">%data%</div>';
+//var HTMLonlineURL = '<br><a href="#">%data%</a>';
+function displayOnlineClasses(){
+  //add online classes to education section
+  $(".education-entry").append(HTMLonlineClasses);
+  for(course in education.onlineCourses){
+    appendHTML(".education-entry", HTMLonlineTitle, education.onlineCourses[course].title);
+    appendHTML(".education-entry", HTMLonlineSchool, education.onlineCourses[course].school);
+    appendHTML(".education-entry", HTMLonlineDates, education.onlineCourses[course].date);
+    appendHTML(".education-entry", HTMLonlineURL, education.onlineCourses[course].url);
   }
 }
 
@@ -179,4 +189,5 @@ appendHTMLArray("#skills",HTMLskills, bio.skills);
 displayWork();
 displayProjects();
 displayEducation();
+displayOnlineClasses();
 
