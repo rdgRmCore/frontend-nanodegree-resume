@@ -22,7 +22,7 @@ var bio = {
 var education ={
     "schools": [
          {"name": "University of Illinois",
-         "location": "Urbana Champaign",
+         "location": "Urbana Champaign, IL",
          "degree": "BS",
          "majors": ["Computer Science"],
          "dates": "1999",
@@ -154,14 +154,15 @@ function displayProjects(){
 //var HTMLonlineDates = '<div class="date-text">%data%</div>';
 //var HTMLonlineURL = '<br><a href="#">%data%</a>';
 function displayEducation(){
-  //create new div for projects
+  //create new div for education
   $("#education").append(HTMLschoolStart);
   for(school in education.schools){
-    appendHTML(".education-entry:last", HTMLschoolName, education.schools[school].name);
+    var update = HTMLschoolName.replace("#", education.schools[school].url);
+    appendHTML(".education-entry:last", update, education.schools[school].name);
     appendHTML(".education-entry:last", HTMLschoolDegree, education.schools[school].degree);
-    appendHTML(".date-text:last", HTMLschoolDates, education.schools[school].dates);
-    appendHTML(".location-text:last", HTMLschoolLocation, education.schools[school].location);
-    //appendHTML(".education-entry:last", HTMLschoolMajor, education.schools[school].majors);
+    appendHTML(".education-entry:last", HTMLschoolDates, education.schools[school].dates);
+    appendHTML(".education-entry:last", HTMLschoolLocation, education.schools[school].location);
+    appendHTML(".education-entry:last", HTMLschoolMajor, education.schools[school].majors);
   }
 }
 
