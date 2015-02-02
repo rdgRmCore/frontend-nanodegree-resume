@@ -162,8 +162,13 @@ education.display = function (){
   $("#education").append(HTMLschoolStart);
   for(school in education.schools){
     var update = HTMLschoolName.replace("#", education.schools[school].url);
-    appendHTML(".education-entry", update, education.schools[school].name);
-    appendHTML(".education-entry", HTMLschoolDegree, education.schools[school].degree);
+    var formattedName = update.replace("%data%", education.schools[school].name);
+    var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
+    var formattedNameDegree = formattedName + formattedDegree;
+    $(".education-entry").append(formattedNameDegree);
+    //appendHTML(".education-entry", update, education.schools[school].name);
+    //appendHTML(".education-entry", HTMLschoolDegree, education.schools[school].degree);
+
     appendHTML(".education-entry", HTMLschoolDates, education.schools[school].dates);
     appendHTML(".education-entry", HTMLschoolLocation, education.schools[school].location);
     appendHTML(".education-entry", HTMLschoolMajor, education.schools[school].majors);
@@ -172,8 +177,12 @@ education.display = function (){
   //add online classes to education section
   $(".education-entry").append(HTMLonlineClasses);
   for(course in education.onlineCourses){
-    appendHTML(".education-entry", HTMLonlineTitle, education.onlineCourses[course].title);
-    appendHTML(".education-entry", HTMLonlineSchool, education.onlineCourses[course].school);
+    //concat title and school
+    var formattedTitle =  HTMLonlineTitle.replace("%data%",education.onlineCourses[course].title);
+    var formattedSchool =  HTMLonlineSchool.replace("%data%",education.onlineCourses[course].school);
+    var formattedTitleSchool = formattedTitle + formattedSchool;
+    $(".education-entry").append(formattedTitleSchool);
+    
     appendHTML(".education-entry", HTMLonlineDates, education.onlineCourses[course].date);
     appendHTML(".education-entry", HTMLonlineURL, education.onlineCourses[course].url);
   }
