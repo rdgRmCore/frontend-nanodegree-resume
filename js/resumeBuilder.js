@@ -161,10 +161,6 @@ function displayEducation(){
   }
 }
 
-//var HTMLonlineTitle = '<a href="#">%data%';
-//var HTMLonlineSchool = ' - %data%</a>';
-//var HTMLonlineDates = '<div class="date-text">%data%</div>';
-//var HTMLonlineURL = '<br><a href="#">%data%</a>';
 function displayOnlineClasses(){
   //add online classes to education section
   $(".education-entry").append(HTMLonlineClasses);
