@@ -166,8 +166,6 @@ education.display = function (){
     var formattedDegree = HTMLschoolDegree.replace("%data%", education.schools[school].degree);
     var formattedNameDegree = formattedName + formattedDegree;
     $(".education-entry").append(formattedNameDegree);
-    //appendHTML(".education-entry", update, education.schools[school].name);
-    //appendHTML(".education-entry", HTMLschoolDegree, education.schools[school].degree);
 
     appendHTML(".education-entry", HTMLschoolDates, education.schools[school].dates);
     appendHTML(".education-entry", HTMLschoolLocation, education.schools[school].location);
